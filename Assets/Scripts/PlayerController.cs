@@ -89,21 +89,19 @@ public class PlayerController : MonoBehaviour
     private void SetGrounded()
     {
         float rayDistance = GetRayDistance();
-        var rayCastHit = Physics2D.Raycast(BottomCollider.bounds.center, Vector2.down, rayDistance, PlatformLayerMask);
+        var rayCastHit = Physics2D.BoxCast(BottomCollider.bounds.center, BottomCollider.bounds.size, 0f, Vector2.down, rayDistance, PlatformLayerMask);
         IsGrounded = (rayCastHit.collider != null);
     }
 
     private void DebugMovimentacaoVertical()
     {
-        float rayDistance = GetRayDistance();
-        Color rayColor = (IsGrounded) ? Color.red : Color.green;
-        Debug.DrawRay(BottomCollider.bounds.center, Vector2.down * rayDistance, rayColor);
+        // float rayDistance = GetRayDistance();
+        // Color rayColor = (IsGrounded) ? Color.red : Color.green;
     }
 
     private float GetRayDistance()
     {
-        float extraHeightCheck = 0.1f;
-        return BottomCollider.bounds.extents.y + extraHeightCheck;
+        return 0.2f;
     }
 
     private void JumpAnimation()
