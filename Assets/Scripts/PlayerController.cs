@@ -67,11 +67,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Direction > 0)
         {
-            SpriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1,1,1);
         }
         else if (Direction < 0)
         {
-            SpriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1,1,1);
         }
     }
 
